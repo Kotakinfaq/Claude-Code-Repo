@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Strava Dashboard</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div id="app" class="viz-root">
+  <header class="topbar">
+    <div class="brand">Strava Dashboard</div>
+    <div class="topbar-actions">
+      <button id="theme-toggle" class="icon-btn" type="button" aria-label="Toggle dark mode">🌓</button>
+      <button id="logout-btn" class="icon-btn text-btn" type="button" hidden>Disconnect</button>
+    </div>
+  </header>
+
+  <section id="connect-screen" class="connect-screen" hidden>
+    <div class="connect-card">
+      <h1 id="connect-title">Connect your Strava account</h1>
+      <p id="connect-body">
+        This dashboard reads your activities live from Strava's own API.
+        Nothing is stored on a server except a token to keep you signed in.
+      </p>
+      <a class="btn-connect" id="connect-link" href="/auth/strava">Connect with Strava</a>
+    </div>
+  </section>
+
+  <main id="dashboard" hidden>
+    <section class="athlete-header" id="athlete-header"></section>
+
+    <section class="filter-row" id="date-filters">
+      <button data-range="30" class="filter-btn active" type="button">Last 30 days</button>
+      <button data-range="90" class="filter-btn" type="button">Last 90 days</button>
+      <button data-range="365" class="filter-btn" type="button">This year</button>
+      <button data-range="all" class="filter-btn" type="button">All time</button>
+    </section>
+
+    <section class="stat-tiles" id="stat-tiles"></section>
+
+    <section class="chart-card">
+      <h2>Weekly distance</h2>
+      <div class="chart bar-chart" id="weekly-chart"></div>
+    </section>
+
+    <section class="chart-card">
+      <h2>Activity mix</h2>
+      <div class="chart type-mix" id="type-mix"></div>
+    </section>
+
+    <section class="table-card">
+      <h2>Recent activities</h2>
+      <div class="table-scroll">
+        <table id="activities-table">
+          <thead>
+            <tr>
+              <th>Activity</th>
+              <th>Type</th>
+              <th>Date</th>
+              <th>Distance</th>
+              <th>Time</th>
+              <th>Pace / Speed</th>
+            </tr>
+          </thead>
+          <tbody id="activities-body"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+</div>
+
+<div id="tooltip" class="tooltip" role="tooltip" hidden></div>
+
+<script src="app.js"></script>
+</body>
+</html>
