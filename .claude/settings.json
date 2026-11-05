@@ -1,0 +1,13 @@
+{
+  "extraKnownMarketplaces": {
+    "ruview": {
+      "source": {
+        "source": "github",
+        "repo": "ruvnet/RuView"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "ruview@ruview": true
+  }
+}
